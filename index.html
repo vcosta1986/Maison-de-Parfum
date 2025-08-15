@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maison de Parfum – Zeitlose Düfte</title>
+  <meta name="description" content="Maison de Parfum – handverlesene, zeitlose Düfte. Entdecken Sie unsere Kollektion, die Geschichte dahinter und bestellen Sie bequem online."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f0f10;         /* Tiefschwarz */
+      --fg:#f4f4f5;         /* Helles Grau für Text */
+      --muted:#b9b9c0;      /* Sekundärtext */
+      --accent:#aa8f66;     /* Warmes Gold-Bronze */
+      --card:#161618;       /* Kartenhintergrund */
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:linear-gradient(180deg, #0b0b0c, var(--bg)); color:var(--fg)}
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+
+    /* Header / Nav */
+    .nav{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(10px); background:rgba(10,10,12,.6); border-bottom:1px solid rgba(255,255,255,.06)}
+    .container{width:min(1100px, 92%); margin:0 auto}
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{font-family:"Playfair Display", serif; letter-spacing:.5px; font-size:22px; font-weight:600}
+    .navlinks{display:flex; gap:20px}
+    .navlinks a{opacity:.9}
+    .navlinks a:hover{opacity:1}
+    .cta{padding:10px 16px; border-radius:9999px; background:linear-gradient(90deg, var(--accent), #c7a97d); color:#0a0a0b; font-weight:600; box-shadow:var(--shadow)}
+
+    /* Hero */
+    .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:26px; align-items:center; padding:64px 0 40px}
+    .kicker{color:var(--accent); font-weight:600; letter-spacing:.12em; text-transform:uppercase; font-size:12px}
+    .title{font-family:"Playfair Display", serif; font-weight:700; line-height:1.1; font-size:clamp(34px, 5vw, 56px); margin:10px 0 18px}
+    .lead{color:var(--muted); font-size:18px}
+    .hero-card{background: radial-gradient(120% 120% at 80% 10%, rgba(170,143,102,.25), rgba(170,143,102,0) 60%), linear-gradient(180deg, #151517, #0f0f10); padding:26px; border-radius:var(--radius); border:1px solid rgba(255,255,255,.06); box-shadow:var(--shadow)}
+    .hero-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px}
+    .bottle{border-radius:18px; overflow:hidden; border:1px solid rgba(255,255,255,.08)}
+
+    /* Section */
+    section{padding:56px 0}
+    .section-head{display:flex; align-items:end; justify-content:space-between; margin-bottom:18px}
+    .section-title{font-family:"Playfair Display", serif; font-size:clamp(24px, 3vw, 36px)}
+    .section-sub{color:var(--muted)}
+
+    /* Collection grid */
+    .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:18px}
+    .card{background:linear-gradient(180deg, #151517, #101012); border:1px solid rgba(255,255,255,.06); border-radius:20px; overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column}
+    .card img{aspect-ratio:4/5; object-fit:cover}
+    .card-body{padding:16px}
+    .label{color:var(--accent); font-size:12px; letter-spacing:.12em; text-transform:uppercase}
+    .name{font-weight:600; margin:8px 0 4px}
+    .note{color:var(--muted); font-size:14px}
+    .price{margin-top:10px; font-weight:600}
+    .btn{margin-top:auto; display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:12px; background:#1b1b1f; border:1px solid rgba(255,255,255,.08); cursor:pointer}
+    .btn:hover{transform:translateY(-1px)}
+
+    /* Story */
+    .story{display:grid; grid-template-columns:1fr 1fr; gap:24px}
+    .story .panel{background:linear-gradient(180deg, #151517, #101012); padding:22px; border:1px solid rgba(255,255,255,.06); border-radius:var(--radius)}
+
+    /* Testimonials */
+    .testi{display:grid; grid-template-columns:repeat(3, 1fr); gap:16px}
+    .quote{background:#121214; border:1px solid rgba(255,255,255,.06); border-radius:18px; padding:18px}
+    .quote p{color:#d9d9df}
+
+    /* Footer */
+    footer{border-top:1px solid rgba(255,255,255,.06); padding:28px 0 60px; color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr; padding-top:32px}
+      .grid{grid-template-columns:1fr 1fr}
+      .story{grid-template-columns:1fr}
+    }
+    @media (max-width: 560px){
+      .grid{grid-template-columns:1fr}
+      .navlinks{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">Maison de Parfum</a>
+      <nav class="navlinks">
+        <a href="#kollektion">Kollektion</a>
+        <a href="#geschichte">Unsere Geschichte</a>
+        <a href="#kontakt">Kontakt</a>
+        <a class="cta" href="#bestellen">Jetzt bestellen</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <div class="kicker">Neu · Swiss Made</div>
+        <h1 class="title">Zeitlose Düfte, handverlesen komponiert.</h1>
+        <p class="lead">Unsere Parfums vereinen edle Rohstoffe mit moderner Parfümerie. Entdecken Sie charakterstarke Signaturen – dezent am Tag, eindrucksvoll am Abend.</p>
+        <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap">
+          <a class="cta" href="#kollektion">Kollektion entdecken</a>
+          <a class="btn" href="#duftfinder">Duftfinder</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-grid">
+          <div class="bottle"><img alt="Parfumflakon auf dunklem Hintergrund" src="https://images.unsplash.com/photo-1603715749729-83d2f229e3a5?q=80&w=1200&auto=format&fit=crop"/></div>
+          <div class="bottle"><img alt="Luxuriöser Parfumflakon" src="https://images.unsplash.com/photo-1605979257916-35ce955b7680?q=80&w=1200&auto=format&fit=crop"/></div>
+          <div class="bottle"><img alt="Duftnoten – Zitrus" src="https://images.unsplash.com/photo-1600349672518-3e30e188a0e7?q=80&w=1200&auto=format&fit=crop"/></div>
+          <div class="bottle"><img alt="Duftnoten – Holz" src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1200&auto=format&fit=crop"/></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kollektion -->
+    <section id="kollektion">
+      <div class="section-head">
+        <h2 class="section-title">Kollektion</h2>
+        <p class="section-sub">Feine Kompositionen für jeden Moment.</p>
+      </div>
+      <div class="grid" id="products"></div>
+    </section>
+
+    <!-- Duftfinder (simple) -->
+    <section id="duftfinder">
+      <div class="section-head">
+        <h2 class="section-title">Duftfinder</h2>
+        <p class="section-sub">3 Fragen – wir empfehlen einen Duft.</p>
+      </div>
+      <div class="story">
+        <div class="panel">
+          <label>1) Stimmung heute?</label>
+          <div style="display:flex; gap:8px; margin-top:8px; flex-wrap:wrap">
+            <button class="btn" data-q="mood" data-v="frisch">Frisch</button>
+            <button class="btn" data-q="mood" data-v="elegant">Elegant</button>
+            <button class="btn" data-q="mood" data-v="mystisch">Mystisch</button>
+          </div>
+          <label style="display:block; margin-top:12px">2) Tageszeit?</label>
+          <div style="display:flex; gap:8px; margin-top:8px; flex-wrap:wrap">
+            <button class="btn" data-q="time" data-v="tag">Tag</button>
+            <button class="btn" data-q="time" data-v="abend">Abend</button>
+          </div>
+          <label style="display:block; margin-top:12px">3) Anlass?</label>
+          <div style="display:flex; gap:8px; margin-top:8px; flex-wrap:wrap">
+            <button class="btn" data-q="occasion" data-v="business">Business</button>
+            <button class="btn" data-q="occasion" data-v="casual">Casual</button>
+            <button class="btn" data-q="occasion" data-v="date">Date</button>
+          </div>
+          <div id="rec" style="margin-top:14px; font-weight:600"></div>
+        </div>
+        <div class="panel">
+          <h3 style="margin-top:0">Hinweis</h3>
+          <p class="section-sub">Dieser kleine Assistent ist rein statisch und funktioniert ohne Server. Für einen ausgebauten Duftberater mit Formular und E‑Mail‑Versand kann später ein Dienst wie Formspree, Mailchimp oder Netlify Forms angebunden werden.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story -->
+    <section id="geschichte">
+      <div class="section-head">
+        <h2 class="section-title">Unsere Geschichte</h2>
+        <p class="section-sub">Aus einem Atelier in der Schweiz – inspiriert von Natur & Kunst.</p>
+      </div>
+      <div class="story">
+        <div class="panel">
+          <p>Maison de Parfum entstand aus der Idee, klassische Parfümerie neu zu interpretieren. Wir arbeiten mit hochwertigen Essenzen aus aller Welt und legen besonderen Wert auf Transparenz der Inhaltsstoffe.</p>
+          <p>Alle Düfte werden in kleinen Batches gefertigt und von Hand abgefüllt – für gleichbleibende Qualität.</p>
+        </div>
+        <div class="panel">
+          <ul style="line-height:1.9; margin:0; padding-left:18px">
+            <li>Vegane Formeln, tierversuchsfrei</li>
+            <li>Unisex‑Kompositionen</li>
+            <li>Recycelte Verpackung & kurzer Lieferweg (CH/EU)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section>
+      <div class="section-head">
+        <h2 class="section-title">Stimmen unserer Kund:innen</h2>
+      </div>
+      <div class="testi">
+        <div class="quote"><p>„Bleibt den ganzen Tag – elegant und unaufdringlich.“</p><small>— Laura K.</small></div>
+        <div class="quote"><p>„Mein Signature‑Duft! Verpackung & Service top.“</p><small>— Daniel S.</small></div>
+        <div class="quote"><p>„Frisch, modern, qualitativ sehr hochwertig.“</p><small>— Sofia P.</small></div>
+      </div>
+    </section>
+
+    <!-- Kontakt / Bestellen -->
+    <section id="bestellen">
+      <div class="section-head">
+        <h2 class="section-title">Bestellen & Kontakt</h2>
+        <p class="section-sub">Schreiben Sie uns direkt – wir beraten gern.</p>
+      </div>
+      <div class="story" id="kontakt">
+        <div class="panel">
+          <p style="margin-top:0">Bestellungen per E‑Mail:</p>
+          <a class="cta" href="mailto:bestellung@maisondeparfum.example?subject=Bestellung">bestellung@maisondeparfum.example</a>
+          <p style="margin-top:14px">Oder via WhatsApp:</p>
+          <a class="btn" href="https://wa.me/41000000000" target="_blank" rel="noopener">+41 00 000 00 00</a>
+          <p class="section-sub" style="margin-top:14px">(Platzhalter – bitte Ihre echten Kontaktdaten eintragen)</p>
+        </div>
+        <div class="panel">
+          <form id="orderForm">
+            <label for="p">Duft</label>
+            <select id="p" name="product" style="width:100%; padding:10px; border-radius:10px; background:#141418; color:var(--fg); border:1px solid rgba(255,255,255,.08)"></select>
+            <label for="q" style="display:block; margin-top:10px">Menge</label>
+            <input id="q" name="qty" type="number" min="1" value="1" style="width:100%; padding:10px; border-radius:10px; background:#141418; color:var(--fg); border:1px solid rgba(255,255,255,.08)"/>
+            <button class="btn" type="submit" style="margin-top:12px">Bestellanfrage senden</button>
+            <div id="msg" class="section-sub" style="margin-top:10px"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px">
+      <small>© <span id="year"></span> Maison de Parfum</small>
+      <small><a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a></small>
+    </div>
+  </footer>
+
+  <script>
+    // --- Dummy-Produkte (einfach anpassbar) ---
+    const PRODUCTS = [
+      {sku:"MDP-01", name:"Éclat de Jour", notes:"Bergamotte · Jasmin · Moschus", price:129, img:"https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop"},
+      {sku:"MDP-02", name:"Noir d'Été", notes:"Grapefruit · Vetiver · Patchouli", price:139, img:"https://images.unsplash.com/photo-1563170351-be82bc888aa4?q=80&w=1200&auto=format&fit=crop"},
+      {sku:"MDP-03", name:"Bois Moderne", notes:"Zedernholz · Ambra · Tonkabohne", price:149, img:"https://images.unsplash.com/photo-1610557892450-8f2a4d5be3e9?q=80&w=1200&auto=format&fit=crop"},
+      {sku:"MDP-04", name:"Lumière Blanche", notes:"Birne · Pfingstrose · Moschus", price:119, img:"https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=1200&auto=format&fit=crop"},
+      {sku:"MDP-05", name:"Café Orient", notes:"Kaffee · Kardamom · Vanille", price:159, img:"https://images.unsplash.com/photo-1494314671902-399b18174975?q=80&w=1200&auto=format&fit=crop"},
+      {sku:"MDP-06", name:"Brise Marine", notes:"Zitrus · Meersalz · Treibholz", price:129, img:"https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop"}
+    ];
+
+    // Render Produktgrid
+    const grid = document.getElementById('products');
+    function renderProducts(){
+      grid.innerHTML = PRODUCTS.map(p=>`
+        <article class="card">
+          <img src="${p.img}" alt="${p.name}" loading="lazy"/>
+          <div class="card-body">
+            <div class="label">${p.sku}</div>
+            <div class="name">${p.name}</div>
+            <div class="note">${p.notes}</div>
+            <div class="price">CHF ${p.price}.–</div>
+            <a class="btn" href="#bestellen" data-sku="${p.sku}" data-name="${p.name}">In den Warenkorb</a>
+          </div>
+        </article>`).join('');
+
+      // Buttons koppeln
+      grid.querySelectorAll('.btn').forEach(b=>{
+        b.addEventListener('click', (e)=>{
+          const sku = e.currentTarget.dataset.sku;
+          const name = e.currentTarget.dataset.name;
+          const select = document.getElementById('p');
+          select.value = sku;
+          document.getElementById('msg').textContent = `Gewählt: ${name} (${sku})`;
+        });
+      });
+    }
+
+    // Kontakt/Bestellformular vorbefüllen
+    const select = document.getElementById('p');
+    PRODUCTS.forEach(p=>{
+      const o = document.createElement('option');
+      o.value = p.sku; o.textContent = `${p.name} – CHF ${p.price}.–`;
+      select.appendChild(o);
+    });
+
+    // Leichtgewichtiger Duftfinder
+    const prefs = {mood:null, time:null, occasion:null};
+    document.querySelectorAll('#duftfinder .btn[data-q]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        prefs[btn.dataset.q] = btn.dataset.v;
+        recommend();
+      });
+    });
+    function recommend(){
+      let rec = PRODUCTS[0];
+      if(prefs.mood==='frisch') rec = PRODUCTS.find(p=>p.name.includes('Brise')) || PRODUCTS[0];
+      if(prefs.mood==='elegant') rec = PRODUCTS.find(p=>p.name.includes('Éclat')) || PRODUCTS[1];
+      if(prefs.mood==='mystisch') rec = PRODUCTS.find(p=>p.name.includes('Noir')) || PRODUCTS[2];
+      if(prefs.time==='abend') rec = PRODUCTS.find(p=>p.name.includes('Noir')) || rec;
+      if(prefs.occasion==='date') rec = PRODUCTS.find(p=>p.name.includes('Lumière')) || rec;
+      document.getElementById('rec').textContent = `Empfehlung: ${rec.name} (${rec.sku})`;
+    }
+
+    // Bestellanfrage als Mailto
+    document.getElementById('orderForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const sku = document.getElementById('p').value;
+      const qty = document.getElementById('q').value;
+      const prod = PRODUCTS.find(p=>p.sku===sku);
+      const subject = encodeURIComponent(`Bestellung ${prod.name} (${sku}) x${qty}`);
+      const body = encodeURIComponent(`Guten Tag,%0D%0Aich möchte bestellen:%0D%0A- ${prod.name} (${sku}) x${qty}%0D%0A- Gesamt: CHF ${prod.price * qty}.–%0D%0A%0D%0AMeine Lieferadresse:%0D%0A…%0D%0ADanke!`);
+      window.location.href = `mailto:bestellung@maisondeparfum.example?subject=${subject}&body=${body}`;
+      document.getElementById('msg').textContent = 'E‑Mail‑Entwurf geöffnet (bitte Client bestätigen).';
+    });
+
+    // Jahr setzen & initial rendern
+    document.getElementById('year').textContent = new Date().getFullYear();
+    renderProducts();
+  </script>
+</body>
+</html>
